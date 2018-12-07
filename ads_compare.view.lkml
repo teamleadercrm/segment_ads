@@ -10,12 +10,12 @@ view: ads_compare {
                 sum(i.impressions) as impresssions,
                 sum(i.clicks) as clicks,
                 'Facebook Ads'::text as source
-          from  facebook_ads.ads a
-          join  facebook_ads.insights i
+          from  facebook.ads a
+          join  facebook.insights i
             on  a.id = i.ad_id
-          join  facebook_ads.campaigns c
+          join  facebook.campaigns c
             on  a.campaign_id = c.id
-          join  facebook_ads.ad_sets ad
+          join  facebook.ad_sets ad
             on  a.adset_id = ad.id
       group by  1,2,3,4
       ),
